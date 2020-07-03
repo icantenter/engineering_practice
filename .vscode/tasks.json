@@ -1,0 +1,79 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "command": "g++",
+            "args": [
+                "${fileDirname}/*.cpp",//文件夹下所有.c文件 
+                //"${file}",   // 指定编译源代码文件
+                //"main.cpp",
+                //"game.cpp",
+                //"menu.cpp",
+                //"Snake.cpp",
+                //"function.cpp",
+                //"Text.cpp",
+                //"animation.cpp",
+                //"test.cpp",
+                //"GasterBlaster.cpp",
+                //"MoveableRect.cpp",
+                //"Settings.cpp",
+                //"Vector.cpp",
+                /*"Arrow.cpp",
+                "Curtain.cpp",
+                "register.cpp",
+                "Button.cpp",
+                "Settings.cpp",
+                "DataBase.cpp",
+                "Data.cpp",*/
+                "-o",
+                "${fileDirname}/build/${fileBasenameNoExtension}.exe", // 指定输出文件名，不加该参数则默认输出a.exe
+                "-g",
+                "-lmingw32",
+                "-lSDL2main",
+                "-lSDL2",
+                "-lSDL2_ttf",
+                "-lSDL2_image",
+                "-lSDL2_mixer",
+                //"-mwindows",               //控制cmd窗口是否出现
+                "-O0",      // 优化级别
+                "-ggdb3",   // 生成和调试有关的信息
+                "-Wall",    // 开启额外警告
+                "-static-libgcc",   // 静态链接
+                "-std=c++14",       // 使用c++17标准
+                "-finput-charset=UTF-8",    //输入编译器文本编码 默认为UTF-8
+                "-fexec-charset=GB18030",   //输出exe文件的编码
+                "-D _USE_MATH_DEFINES"
+            ],
+
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "absolute",
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+
+            "type": "shell",
+            
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+
+            "presentation": {
+                "echo": true,
+                "reveal": "always", // 在“终端”中显示编译信息的策略，可以为always，silent，never
+                 "focus": false,
+                 "panel": "shared" // 不同的文件的编译信息共享一个终端面板
+            },
+        }
+    ]
+}
